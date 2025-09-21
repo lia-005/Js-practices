@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c {
+            height: 300px;
+            width: 300px;
+            margin: 15px;
+            padding: 15px;
+            border: black 2px solid;
+            background-color: aqua;
+        }
+
+        .p {
+            margin: 15px;
+            padding: 15px;
+            border: black 2px solid;
+            background-color: rgb(0, 255, 38);
+
+        }
+
+        .gp {
+            margin: 15px;
+            padding: 15px;
+            border: black 2px solid;
+            background-color: rgb(255, 0, 102);
+        }
+
+        ._3rd {
+            height: 300px;
+            width: 300px;
+            margin: 15px;
+            padding: 15px;
+            border: black 2px solid;
+            background-color: #121b60;
+        }
+
+        ._2nd {
+            margin: 15px;
+            padding: 15px;
+            border: black 2px solid;
+            background-color: rgb(133, 20, 174);
+
+        }
+
+        ._1st {
+            margin: 15px;
+            padding: 15px;
+            border: black 2px solid;
+            background-color: rgb(76, 125, 30);
+        }
+    </style>
+</head>
+
+<body>
+    <diV class="gp">
+        <div class="p">
+            <div class="c">
+                hi
+            </div>
+        </div>
+    </diV>
+    <h1>solved problem</h1>
+    <div>
+        <div class="_1st">
+            <div class="_2nd">
+                <div class="_3rd">hi</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    //  here is happininig eventbubbling , cause the parent div id (.gp) so wheneven we click on any of the three div it will listen to the main parent event .
+    document.querySelector(".gp").addEventListener("click", function () {
+        document.querySelector(".c").innerHTML = "its grand parent";
+        document.querySelector(".c").style.backgroundColor = "orange";
+        alert("gp");
+    })
+
+    document.querySelector(".p").addEventListener("click", function () {
+        document.querySelector(".c").innerHTML = "its parent";
+        document.querySelector(".c").style.backgroundColor = "yellow";
+        alert("p");
+    })
+
+
+    document.querySelector(".c").addEventListener("click", function () {
+        document.querySelector(".c").innerHTML = "its child";
+        document.querySelector(".c").style.backgroundColor = "violet";
+        alert("c");
+
+    });
+    //to avoid this event bulbbling we have to use function().stopPropagation()
+    function gp() {
+        document.querySelector("._3rd").innerHTML = "its grand parent";
+        document.querySelector("._3rd").style.backgroundColor = "orange";
+        alert("1st");
+    }
+    function p() {
+        document.querySelector("._3rd").innerHTML = "its parent";
+        document.querySelector("._3rd").style.backgroundColor = "yellow";
+        alert("2nd");
+    }
+    function c() {
+        document.querySelector("._3rd").innerHTML = "its child";
+        document.querySelector("._3rd").style.backgroundColor = "violet";
+        alert("3rd");
+    }
+    document.querySelector("._1st").addEventListener("dblclick", function (gp)
+     { 
+         document.querySelector("._3rd").innerHTML = "its grand parent";
+         document.querySelector("._3rd").style.backgroundColor = "orange";
+         alert("1st");
+         gp.stopPropagation() ;
+     });
+    document.querySelector("._2nd").addEventListener("dblclick", function (p)
+     { 
+         document.querySelector("._3rd").innerHTML = "its parent";
+         document.querySelector("._3rd").style.backgroundColor = "yellow";
+         alert("2nd");
+         p.stopPropagation() ;
+     });
+    document.querySelector("._3rd").addEventListener("dblclick", function(c){
+          document.querySelector("._3rd").innerHTML = "its child";
+        document.querySelector("._3rd").style.backgroundColor = "violet";
+        alert("3rd");
+        c.stopPropagation()
+    })
+     
+</script>
+
+</html>
