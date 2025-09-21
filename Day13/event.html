@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c{
+            cursor: text;
+            font-size: 100px;
+            height: 300px;
+            width: 300px;
+            margin: 15px;
+            padding: 15px;
+            border: black 2px solid;
+            background-color: aqua;
+        }
+        .p{ 
+            cursor: text;
+            margin: 15px;
+            padding: 15px;
+            border: black 2px solid;
+            background-color: rgb(0, 255, 38);
+
+            font-size: 100px;
+        }
+        .gp{
+            cursor: text;
+            font-size: 100px;
+             margin: 15px;
+            padding: 15px;
+            border: black 2px solid;
+            background-color: rgb(255, 0, 102);
+        }
+        button{
+            border: black solid 3px;
+cursor: pointer;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <diV class="gp">
+        <div class="p">
+            <div class="c">
+                hi
+            </div>
+        </div>
+    </diV>
+    <button type="button" id="btn">click on me</button>
+    
+</body>
+<script>
+    //  listeners (or event listeners) are functions that wait for and respond to specific events triggered by the user or the browser
+    document.querySelector("#btn").addEventListener("click", function() {
+  document.querySelector(".c").innerHTML = "Hello World";
+  document.querySelector(".gp").style.backgroundColor = "violet";
+  //here u have to do select an element and then add a .addEventListener("listener", function(){in this function u have to write that what u want through the event}),
+ });
+  document.addEventListener("keydown", (e)=>{
+console.log(e,e.key);
+alert("You have pressed"+e.key);
+
+  })
+
+
+</script>
+</html>
