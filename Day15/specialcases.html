@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+  async function sleep() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(55)
+        }, 1000);
+      })
+  }
+  /*
+  This is known as immidiately invoked function expression
+  here we call th function immidiately
+  */
+  (async function main() {
+
+    let a= await sleep()
+    console.log(a);
+    
+    let b= await sleep()
+console.log(b);
+
+  })()
+
+  let [x,y,...others]=[15,20,5,9,90,8,7]
+  console.log(x,y,others);//here others contain the rest of the array
+
+  const obj={
+    a: 12,
+    b: 25,
+    c: 99,
+    d:90,
+    e: 88
+  }
+  //some times we need some specific objects from the main large object so ... we took those element separetely
+  let {a,d,e}= obj
+  console.log(a,d,e);
+  
+      let arr = [1, 4, 6]
+    console.log(sum(arr[0], arr[1], arr[2]))//take separetely all elements
+    console.log(sum(...arr))//spread the array and do the sum
+
+</script>
+</html>
